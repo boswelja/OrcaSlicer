@@ -85,6 +85,7 @@ struct PlateData
     std::string     pattern_bbox_file;
     std::string     gcode_prediction;
     std::string     gcode_weight;
+    std::string     first_layer_time;
     std::string     plate_name;
     std::vector<FilamentInfo> slice_filaments_info;
     std::vector<size_t> skipped_objects;
@@ -247,7 +248,7 @@ struct StoreParams
 // add restore logic
 // Load the content of a 3mf file into the given model and preset bundle.
 extern bool load_bbs_3mf(const char* path, DynamicPrintConfig* config, ConfigSubstitutionContext* config_substitutions, Model* model, PlateDataPtrs* plate_data_list, std::vector<Preset*>* project_presets,
-        bool* is_bbl_3mf, Semver* file_version, Import3mfProgressFn proFn = nullptr, LoadStrategy strategy = LoadStrategy::Default, BBLProject *project = nullptr, int plate_id = 0);
+        bool* is_bbl_3mf, bool* is_orca_3mf, Semver* file_version, Import3mfProgressFn proFn = nullptr, LoadStrategy strategy = LoadStrategy::Default, BBLProject *project = nullptr, int plate_id = 0);
 
 extern std::string bbs_3mf_get_thumbnail(const char * path);
 
